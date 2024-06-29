@@ -1,0 +1,91 @@
+﻿/* General Styles */
+body {
+    background-color: #f0f2f5;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+/* Top Bar */
+.swagger-ui .topbar {
+    background-color: #4A90E2;
+    border-bottom: 2px solid #357ABD;
+}
+
+.swagger-ui .topbar a {
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* Info Section */
+.swagger-ui .info {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Operations */
+.swagger-ui .opblock {
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.swagger-ui .opblock .opblock-summary {
+    background-color: #4A90E2;
+    color: #fff;
+    border-radius: 8px 8px 0 0;
+}
+
+.swagger-ui .opblock .opblock-summary:hover {
+    background-color: #357ABD;
+}
+
+.swagger-ui .opblock-description-wrapper,
+.swagger-ui .response-col_description,
+.swagger-ui .opblock-body pre {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Buttons */
+.swagger-ui .btn {
+    background-color: #4A90E2;
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.swagger-ui .btn:hover {
+    background-color: #357ABD;
+}
+
+/* Code Blocks */
+.swagger-ui .opblock-body pre,
+.swagger-ui .response-col_description pre {
+    background-color: #f8f8f8;
+    border-left: 4px solid #4A90E2;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+/* Headers */
+.swagger-ui h2, .swagger-ui h3, .swagger-ui h4 {
+    color: #4A90E2;
+    margin-top: 20px;
+}
+
+/* Links */
+.swagger-ui a {
+    color: #4A90E2;
+    text-decoration: none;
+}
+
+.swagger-ui a:hover {
+    text-decoration: underline;
+}

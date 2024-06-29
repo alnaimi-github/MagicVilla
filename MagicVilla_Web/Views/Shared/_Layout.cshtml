@@ -1,0 +1,95 @@
+﻿@using MagicVilla_Utility.StaticDetails
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MagicVilla_Web</title>
+    <link rel="stylesheet" href="~/css/Bootstrap.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/MagicVilla_Web.styles.css" asp-append-version="true" />
+    <link href="~/lib/sweetalert2/sweetalert2.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/bootstrap-icons/font/bootstrap-icons.css" />
+</head>
+<body>
+    <partial name="_Notification" />
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-dark box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand text-light" asp-area="" asp-controller="Home" asp-action="Index">MagicVilla_Web</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-light" data-bs-toggle="dropdown" aria-expanded="false">
+                              @if (User.IsInRole(Sd.Roles.Admin.ToString().ToLower()))
+                              {
+                                    <span> Content Management (Admin)</span>
+                              }
+                              else
+                              {
+                                  <span>Villa & Villa Number</span>
+                              }
+                            </a>
+                            <ul class="dropdown-menu" style="background: #3e3f3a" aria-labelledby="navbarDropdown">
+                                <li class="nav-item">
+                                    <a class="nav-link mx-2 text-white" asp-area="" asp-controller="Villa" asp-action="VillaIndex">Villa</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link  mx-2 text-white" asp-area="" asp-controller="VillaNumber" asp-action="VillaNumberIndex">Villa Number</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <ul class="navbar-nav">
+                        @if (User.Identity!.IsAuthenticated)
+                        {
+                            <li class="nav-item me-2 my-2">
+                                <a class="nav-link  text-light"  href="#">Hello @User.Identity.Name</a>
+                            </li>
+                            <li class="nav-item me-2 my-2">
+                                <a class="nav-link btn btn-outline-success text-light" style="border: 2px solid #6b8e23 !important;" asp-controller="Auth" asp-action="Logout">Logout</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item me-2 my-2">
+                                <a class="nav-link btn btn-outline-success text-light" style="border: 2px solid #6b8e23 !important;" asp-controller="Auth" asp-action="Register">Register</a>
+                            </li>
+                            <li class="nav-item me-2 my-2">
+                                <a class="nav-link btn btn-outline-success text-light" style="border: 2px solid #6b8e23 !important;" asp-controller="Auth" asp-action="Login">Login</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="footer text-muted bg-dark" data-bs-theme="dark">
+        <div class="text-center">
+            <span style="color:darkgray"> ASP .NET © Project | Made with <i class="bi bi-heart-fill"></i> By Al Nuaimi</span>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/sweetalert2/sweetalert2.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
